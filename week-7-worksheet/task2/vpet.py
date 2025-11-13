@@ -11,16 +11,16 @@ class VirtualPet():
         self.hunger = hunger
     def play(self):
         if self.energy < 2:
-            print(f"'{self.name} is too tired to play!'")
+            return f"{self.name} is too tired to play!"
         else:
             self.energy -= 2
             self.hunger += 2
     def feed(self):
+        self.hunger = self.hunger - 3
         if self.hunger < 0:
-            print(f"'{self.name} is overfed!'")
-            self.hunger = 0 
-        else:
-            self.hunger = self.hunger - 3
+            self.hunger = 0
+            return f"{self.name} is overfed!"      
+
     def sleep(self):
         self.energy = self.energy + 10
     def __str__(self):
